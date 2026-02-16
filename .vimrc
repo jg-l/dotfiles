@@ -43,13 +43,13 @@ set wrap
 " Break lines at word boundaries instead of character boundaries
 set linebreak
 " Preserve indentation when wrapping lines
-set breakindent 
+set breakindent
 
 " Markdown editing tweaks (2-space indentation, 140 char width, visual line breaks)
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab textwidth=140 linebreak breakindentopt=shift:2
 
 " Disable swap files (prevents .swp file creation)
-set noswapfile 
+set noswapfile
 " Set directory for persistent undo files
 set undodir=~/.vim/undodir
 " Enable persistent undo (undo history survives after closing file)
