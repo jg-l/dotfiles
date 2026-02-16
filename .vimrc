@@ -62,3 +62,5 @@ set statusline=%F
 " Always show status line (2 = always, 1 = only if there are multiple windows)
 set laststatus=2
 
+set mouse=nvi
+
