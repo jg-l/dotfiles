@@ -8,7 +8,7 @@ config-version = 2
 # You can use it to add commands that run after Dwmac startup.
 # Available commands : https://hillyu.github.io/Dwmac/commands
 after-startup-command = [
-'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+'exec-and-forget borders active_color=0xffFF8C00 inactive_color=0xff494d64 width=5.0'
 ]
 
 # Start Dwmac at login
@@ -105,6 +105,9 @@ mod = 'cmd-alt-ctrl'
 
     # Full screen window
     mod-f = 'fullscreen'
+
+    # Toggle between tiling and floating layout
+    mod-y = 'layout floating tiling'
 
     # See: https://hillyu.github.io/Dwmac/commands#resize
     mod-minus = 'resize smart -50'
