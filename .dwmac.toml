@@ -1,0 +1,149 @@
+# Place a copy of this config to ~/.dwmac.toml
+# After that, you can edit ~/.dwmac.toml to your liking
+
+# Config version for compatibility and deprecations
+# Fallback value (if you omit the key): config-version = 1
+config-version = 2
+
+# You can use it to add commands that run after Dwmac startup.
+# Available commands : https://hillyu.github.io/Dwmac/commands
+after-startup-command = [
+'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+]
+
+# Start Dwmac at login
+start-at-login = true
+
+# Possible values: master-stack
+default-root-container-layout = 'master-stack'
+
+# mfact for master-stack
+default-mfact = 0.5
+
+# Whether new windows should be attached to the master position (index 0) or the last position.
+# Fallback value (if you omit the key): attach-below = false
+attach-below = true
+
+# Possible values: horizontal|vertical|auto
+# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
+#               tall monitor (anything higher than wide) gets vertical orientation
+default-root-container-orientation = 'vertical'
+
+# Mouse follows focus when focused monitor changes
+# Drop it from your config, if you don't like this behavior
+# See https://hillyu.github.io/Dwmac/guide#on-focus-changed-callbacks
+# See https://hillyu.github.io/Dwmac/commands#move-mouse
+# Fallback value (if you omit the key): on-focused-monitor-changed = []
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
+# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
+# Also see: https://hillyu.github.io/Dwmac/goodies#disable-hide-app
+automatically-unhide-macos-hidden-apps = true
+
+# Whether to automatically center floating windows.
+# Fallback value (if you omit the key): center-floating-windows = false
+center-floating-windows = true
+
+# List of workspaces that should stay alive even when they contain no windows,
+# even when they are invisible.
+# This config version is only available since 'config-version = 2'
+# Fallback value (if you omit the key): persistent-workspaces = []
+persistent-workspaces = ["1", "2", "3", "4", "5", ]
+
+# A callback that runs every time binding mode changes
+# See: https://hillyu.github.io/Dwmac/guide#binding-modes
+# See: https://hillyu.github.io/Dwmac/commands#mode
+on-mode-changed = []
+mod = 'cmd-alt-ctrl'
+
+# Possible values: (qwerty|dvorak|colemak)
+# See https://hillyu.github.io/Dwmac/guide#key-mapping
+[key-mapping]
+    preset = 'qwerty'
+
+# Gaps between windows (inner-*) and between monitor edges (outer-*).
+# Possible values:
+# - Constant:     gaps.outer.top = 8
+# - Per monitor:  gaps.outer.top = [{ monitor.main = 16 }, { monitor."some-pattern" = 32 }, 24]
+#                 In this example, 24 is a default value when there is no match.
+#                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
+#                 See:
+#                 https://hillyu.github.io/Dwmac/guide#assign-workspaces-to-monitors
+[gaps]
+    inner.horizontal = 5
+    inner.vertical =   5
+    outer.left =       5
+    outer.bottom =     5
+    outer.top =        5
+    outer.right =      5
+
+# 'main' binding mode declaration
+# See: https://hillyu.github.io/Dwmac/guide#binding-modes
+# 'main' binding mode must be always presented
+# Fallback value (if you omit the key): mode.main.binding = {}
+[mode.main.binding]
+    # See: https://hillyu.github.io/Dwmac/commands#layout
+    mod-slash = 'layout h_master-stack v_master-stack'
+
+    # See: https://hillyu.github.io/Dwmac/commands#focus
+    mod-j = 'focus next'
+    mod-k = 'focus prev'
+    mod-h = 'mfact -0.1'
+    mod-l = 'mfact +0.1'
+
+    # See: https://hillyu.github.io/Dwmac/commands#move
+    mod-space = 'move-node-to-master'
+    mod-q = 'focus-master-or-back'
+    mod-shift-j = 'swap next'
+    mod-shift-k = 'swap prev'
+
+    # Full screen window
+    mod-f = 'fullscreen'
+
+    # See: https://hillyu.github.io/Dwmac/commands#resize
+    mod-minus = 'resize smart -50'
+    mod-equal = 'resize smart +50'
+
+    # See: https://hillyu.github.io/Dwmac/commands#workspace
+    mod-1 = 'workspace 1'
+    mod-2 = 'workspace 2'
+    mod-3 = 'workspace 3'
+    mod-4 = 'workspace 4'
+    mod-5 = 'workspace 5'
+    mod-6 = 'workspace 6'
+    mod-7 = 'workspace 7'
+    mod-8 = 'workspace 8'
+    mod-9 = 'workspace 9'
+
+    # See: https://hillyu.github.io/Dwmac/commands#move-node-to-workspace
+    mod-shift-1 = 'move-node-to-workspace 1'
+    mod-shift-2 = 'move-node-to-workspace 2'
+    mod-shift-3 = 'move-node-to-workspace 3'
+    mod-shift-4 = 'move-node-to-workspace 4'
+    mod-shift-5 = 'move-node-to-workspace 5'
+    mod-shift-6 = 'move-node-to-workspace 6'
+    mod-shift-7 = 'move-node-to-workspace 7'
+    mod-shift-8 = 'move-node-to-workspace 8'
+    mod-shift-9 = 'move-node-to-workspace 9'
+
+    # See: https://hillyu.github.io/Dwmac/commands#workspace-back-and-forth
+    mod-tab = 'workspace-back-and-forth'
+    # See: https://hillyu.github.io/Dwmac/commands#move-workspace-to-monitor
+    mod-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    # See: https://hillyu.github.io/Dwmac/commands#mode
+    mod-shift-semicolon = 'mode service'
+
+# 'service' binding mode declaration.
+# See: https://hillyu.github.io/Dwmac/guide#binding-modes
+[mode.service.binding]
+    esc = ['reload-config', 'mode main']
+    f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+    # sticky is not yet supported https://github.com/hillyu/Dwmac/issues/2
+    #s = ['layout sticky tiling', 'mode main']
+
+
+
