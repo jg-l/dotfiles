@@ -43,7 +43,8 @@ automatically-unhide-macos-hidden-apps = true
 
 # Whether to automatically center floating windows.
 # Fallback value (if you omit the key): center-floating-windows = false
-center-floating-windows = true
+center-floating-windows = false
+
 
 # List of workspaces that should stay alive even when they contain no windows,
 # even when they are invisible.
@@ -77,6 +78,10 @@ mod = 'cmd-alt-ctrl'
     outer.bottom =     5
     outer.top =        5
     outer.right =      5
+
+[[on-window-detected]]
+    if.app-id = 'md.obsidian'
+    run = 'move-node-to-workspace 3'
 
 # 'main' binding mode declaration
 # See: https://hillyu.github.io/Dwmac/guide#binding-modes
