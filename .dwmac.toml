@@ -81,7 +81,11 @@ mod = 'cmd-alt-ctrl'
 
 [[on-window-detected]]
     if.app-id = 'md.obsidian'
-    run = 'move-node-to-workspace 3'
+    run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.iphonesimulator'
+    run = 'layout floating'
 
 # 'main' binding mode declaration
 # See: https://hillyu.github.io/Dwmac/guide#binding-modes
