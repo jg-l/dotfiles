@@ -50,3 +50,5 @@ set undolevels=1000
 set statusline=%F
 set laststatus=2
 
+set mouse=nvi
+
