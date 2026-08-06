@@ -1,0 +1,56 @@
+# [Created by task 3.4.2 7/11/2026 21:14:30]
+data.location=/Users/j/.task
+news.version=3.4.2
+
+report.todo.description=Not started
+report.todo.columns=id,description,project,tags
+report.todo.labels=ID,Task,Project,Tags
+report.todo.filter=status:pending -ACTIVE
+report.todo.sort=urgency-
+
+report.active.columns=id,description,project,tags
+report.active.labels=ID,Task,Project,Tags
+
+report.completed.columns=id,description,project,tags
+report.completed.labels=ID,Task,Project,Tags
+
+
+### Inbox report
+report.inbox.description=Waiting tasks, newest first
+report.inbox.columns=id,description,tags,entry.age,scheduled.remaining,wait.remaining
+report.inbox.labels=ID,Description,Tags,Age,Scheduled,Wait
+report.inbox.filter=status:waiting
+report.inbox.sort=entry-
+
+### Complete
+
+report.complete.description=Tasks completed today
+report.complete.columns=uuid.short,description,end
+report.complete.labels=ID,Description,Completed
+report.complete.filter=status:completed and end.after:today
+report.complete.sort=end+
+
+
+# To use the default location of the XDG directories,
+# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and update location config as follows:
+
+#data.location=~/.local/share/task
+#hooks.location=~/.config/task/hooks
+
+# Color theme (uncomment one to use)
+#include light-16.theme
+include light-256.theme
+#include bubblegum-256.theme
+#include dark-16.theme
+#include dark-256.theme
+#include dark-red-256.theme
+#include dark-green-256.theme
+#include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+#include solarized-light-256.theme
+#include no-color.theme
+
