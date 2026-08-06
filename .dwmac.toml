@@ -1,6 +1,10 @@
 # Place a copy of this config to ~/.dwmac.toml
 # After that, you can edit ~/.dwmac.toml to your liking
 
+# NOTE: This config targets a forked build of dwmac that adds the
+# 'columns' and 'monocle' layouts (see mod-c / mod-m below) — these
+# are not available in upstream Dwmac.
+
 # Config version for compatibility and deprecations
 # Fallback value (if you omit the key): config-version = 1
 config-version = 2
@@ -11,9 +15,9 @@ after-startup-command = [
 'exec-and-forget borders active_color=0xffFF8C00 inactive_color=0xff494d64 width=5.0'
 ]
 
-exec-on-workspace-change = ['/bin/bash', '-c',
-    'osascript -e "display notification \"Switched to workspace $DWMAC_FOCUSED_WORKSPACE\" with title \"Workspace $DWMAC_FOCUSED_WORKSPACE\""'
-]
+#exec-on-workspace-change = ['/bin/bash', '-c',
+#    'osascript -e "display notification \"Switched to workspace $DWMAC_FOCUSED_WORKSPACE\" with title \"Workspace $DWMAC_FOCUSED_WORKSPACE\""'
+#]
 
 # Start Dwmac at login
 start-at-login = true
@@ -54,7 +58,7 @@ center-floating-windows = false
 # even when they are invisible.
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = ["Browse", "Dev", "Free", "Notes", "Idle", "Idle2"]
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 # A callback that runs every time binding mode changes
 # See: https://hillyu.github.io/Dwmac/guide#binding-modes
@@ -85,7 +89,7 @@ mod = 'cmd-alt-ctrl'
 
 [[on-window-detected]]
     if.app-id = 'md.obsidian'
-    run = 'move-node-to-workspace Notes'
+    run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
     if.app-id = 'com.apple.iphonesimulator'
@@ -98,6 +102,8 @@ mod = 'cmd-alt-ctrl'
 [mode.main.binding]
     # See: https://hillyu.github.io/Dwmac/commands#layout
     mod-slash = 'layout h_master-stack v_master-stack'
+    mod-m = 'layout master-stack monocle'
+    mod-c = 'layout master-stack columns'
 
     # See: https://hillyu.github.io/Dwmac/commands#focus
     mod-j = 'focus next'
@@ -122,20 +128,26 @@ mod = 'cmd-alt-ctrl'
     mod-equal = 'resize smart +0.1'
 
     # See: https://hillyu.github.io/Dwmac/commands#workspace
-    mod-1 = 'workspace Browse'
-    mod-2 = 'workspace Dev'
-    mod-3 = 'workspace Free'
-    mod-4 = 'workspace Notes'
-    mod-5 = 'workspace Idle'
-    mod-6 = 'workspace Idle2'
+    mod-1 = 'workspace 1'
+    mod-2 = 'workspace 2'
+    mod-3 = 'workspace 3'
+    mod-4 = 'workspace 4'
+    mod-5 = 'workspace 5'
+    mod-6 = 'workspace 6'
+    mod-7 = 'workspace 7'
+    mod-8 = 'workspace 8'
+    mod-9 = 'workspace 9'
 
     # See: https://hillyu.github.io/Dwmac/commands#move-node-to-workspace
-    mod-shift-1 = 'move-node-to-workspace Browse'
-    mod-shift-2 = 'move-node-to-workspace Dev'
-    mod-shift-3 = 'move-node-to-workspace Free'
-    mod-shift-4 = 'move-node-to-workspace Notes'
-    mod-shift-5 = 'move-node-to-workspace Idle'
-    mod-shift-6 = 'move-node-to-workspace Idle2'
+    mod-shift-1 = 'move-node-to-workspace 1'
+    mod-shift-2 = 'move-node-to-workspace 2'
+    mod-shift-3 = 'move-node-to-workspace 3'
+    mod-shift-4 = 'move-node-to-workspace 4'
+    mod-shift-5 = 'move-node-to-workspace 5'
+    mod-shift-6 = 'move-node-to-workspace 6'
+    mod-shift-7 = 'move-node-to-workspace 7'
+    mod-shift-8 = 'move-node-to-workspace 8'
+    mod-shift-9 = 'move-node-to-workspace 9'
 
     # See: https://hillyu.github.io/Dwmac/commands#workspace-back-and-forth
     mod-tab = 'workspace-back-and-forth'
